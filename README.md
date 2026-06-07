@@ -26,7 +26,7 @@ A full-stack notice management application built as part of the Reno Platforms W
 1. Clone the repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/GauraVPandeyyy/reno-notice-board.git
 ```
 
 2. Install dependencies
