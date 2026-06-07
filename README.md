@@ -1,40 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Reno Notice Board
 
-## Getting Started
+A full-stack notice management application built as part of the Reno Platforms Web Development Internship Assignment.
 
-First, run the development server:
+## Tech Stack
+
+- Next.js (Pages Router)
+- Prisma ORM
+- TiDB Cloud (MySQL Compatible Database)
+- Tailwind CSS
+- Vercel
+
+## Features
+
+- Create new notices
+- Edit existing notices
+- Delete notices with confirmation
+- Categorize notices (Exam, Event, General)
+- Mark notices as Normal or Urgent
+- Optional image support via URL
+- Responsive user interface
+- Prisma-powered database operations
+
+## Running Locally
+
+1. Clone the repository
+
+```bash
+git clone <your-repository-url>
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. Create a `.env` file and add:
+
+```env
+DATABASE_URL="your_database_connection_string"
+```
+
+4. Push the Prisma schema
+
+```bash
+npx prisma db push
+```
+
+5. Generate Prisma Client
+
+```bash
+npx prisma generate
+```
+
+6. Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+7. Open:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## One Thing I Would Improve With More Time
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+I would add direct image upload support using a service such as Cloudinary or ImageKit instead of requiring users to provide image URLs manually. This would make the notice creation process more convenient and improve the overall user experience.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## AI Usage
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+AI was used mainly for learning and troubleshooting during development. It helped me understand Prisma, TiDB, and some Next.js concepts, and was occasionally used to investigate errors when I got stuck. The application was built, tested, modified, and deployed by me, with AI serving as a learning and support tool during the process.
