@@ -73,53 +73,66 @@ export default function NoticeForm({
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-      <h2 className="text-xl font-bold mb-4">
-        {initialData ? "Edit Notice" : "Create Notice"}
-      </h2>
+    <div className="bg-white rounded-2xl border border-gray-200 shadow-lg p-8">
+      <div className="mb-8">
+        <h2 className="text-3xl font-bold text-gray-900">
+          {initialData ? "Edit Notice" : "Create Notice"}
+        </h2>
+
+        <p className="text-gray-500 mt-2">
+          {initialData
+            ? "Update the information for this notice."
+            : "Publish a new notice for students and staff."}
+        </p>
+      </div>
 
       {error && (
-        <div className="bg-red-100 text-red-700 p-2 rounded mb-4 text-sm">
+        <div className="mb-6 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-red-700">
           {error}
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Title *
+          <label className="mb-2 block text-sm font-semibold text-gray-700">
+            Title <span className="text-red-500">*</span>
           </label>
+
           <input
             type="text"
             required
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm border p-2 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="e.g. Semester Examination Schedule"
+            className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-black placeholder:text-gray-400 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Body *
+          <label className="mb-2 block text-sm font-semibold text-gray-700">
+            Notice Description <span className="text-red-500">*</span>
           </label>
+
           <textarea
             required
             rows="3"
             value={body}
             onChange={(e) => setBody(e.target.value)}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm border p-2 focus:ring-blue-500 focus:border-blue-500"
-          ></textarea>
+            placeholder="Enter complete notice details..."
+            className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-black placeholder:text-gray-400 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100 "
+          />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="mb-2 block text-sm font-semibold text-gray-700">
               Category
             </label>
+
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm border p-2"
+              className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-black outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
             >
               <option value="General">General</option>
               <option value="Exam">Exam</option>
@@ -128,13 +141,14 @@ export default function NoticeForm({
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="mb-2 block text-sm font-semibold text-gray-700">
               Priority
             </label>
+
             <select
               value={priority}
               onChange={(e) => setPriority(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm border p-2"
+              className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-black outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
             >
               <option value="Normal">Normal</option>
               <option value="Urgent">Urgent</option>
@@ -143,43 +157,47 @@ export default function NoticeForm({
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Publish Date *
+          <label className="mb-2 block text-sm font-semibold text-gray-700">
+            Publish Date <span className="text-red-500">*</span>
           </label>
+
           <input
             type="date"
             required
             value={publishDate}
             onChange={(e) => setPublishDate(e.target.value)}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm border p-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-black outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Image URL (Optional)
+          <label className="mb-2 block text-sm font-semibold text-gray-700">
+            Image URL
+            <span className="ml-1 text-xs text-gray-400">(Optional)</span>
           </label>
+
           <input
             type="url"
             value={image}
             onChange={(e) => setImage(e.target.value)}
             placeholder="https://example.com/image.jpg"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm border p-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-black placeholder:text-gray-400 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
           />
         </div>
 
-        <div className="flex justify-end space-x-3 pt-4">
+        <div className="flex justify-end gap-3 pt-4 border-t border-gray-100">
           <button
             type="button"
             onClick={onCancel}
-            className="px-4 py-2 border rounded-md text-gray-600 hover:bg-gray-50"
+            className="rounded-xl border border-gray-300 px-5 py-3 font-medium text-gray-700 transition hover:bg-gray-50"
           >
             Cancel
           </button>
+
           <button
             type="submit"
             disabled={loading}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50"
+            className="rounded-xl bg-gray-900 px-6 py-3 font-medium text-white transition hover:bg-black disabled:opacity-50"
           >
             {loading
               ? "Saving..."
